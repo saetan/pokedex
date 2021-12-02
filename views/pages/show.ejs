@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head');%>
+</head>
+
+<body>
+
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container">
+        <h1>
+            <%=pokemon.name%>
+        </h1>
+        <div class="row">
+            <a class="button button-primary" href="/pokemon/<%=id%>/edit">Edit Name</a>
+            <form method="POST" action="/pokemon/<%=id%>?_method=DELETE">
+                <button class="button button-primary" type="submit">Delete</button>
+            </form>
+        </div>
+        <div class="row">
+            <img src="<%=pokemon.img%>" />
+            <div class="twelve column">
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>type</th>
+                            <th>stats</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a>
+                                    <%=pokemon.id%>
+                                </a>
+                            </td>
+                            <td>
+                                <%=pokemon.name%>
+                            </td>
+                            <td>
+                                <ul style="list-style: none;">
+                                    <%for(let type in pokemon.type) {%>
+                                        <li>
+                                            <%=pokemon.type[type]%>
+                                        </li>
+                                        <%}%>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul style="list-style: none;">
+                                    <%for(let stats in pokemon.stats) {%>
+                                        <li>
+                                            <%=stats%> : <%=pokemon.stats[stats]%>
+                                        </li>
+                                        <%}%>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head');%>
+</head>
+
+<body>
+
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container">
+        <h1>Index List</h1>
+        <a class="button button-primary" href="/pokemon/new">Create New Pokemon</a>
+        <div class="row">
+            <div class="twelve column">
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(let index in data) {%>
+                            <tr>
+                                <td>
+                                    <img src="<%=data[index].img%>" height="100" width="100" />
+                                </td>
+                                <td>
+                                    <a>
+                                        <%=data[index].id%>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/pokemon/<%=index%>">
+                                        <%=data[index].name%>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%=data[index].type%>
+                                </td>
+                            </tr>
+                            <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>
