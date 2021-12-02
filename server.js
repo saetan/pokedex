@@ -6,7 +6,7 @@ const express = require('express');
 const pokemon = require('./models/pokemon.js');
 const methodOverride = require("method-override");
 const app = express();
-const port = 3001;
+const PORT = process.env.PORT || 4000;
 
 // =======================================
 //              DATABASE
@@ -95,6 +95,6 @@ app.get('/', (req, res) => {
 // =======================================
 //              LISTENER
 // =======================================
-app.listen(port, () => {
-    console.log(`PokeDex listening on port: ${port}`);
+app.listen(PORT, () => {
+    console.log(`PokeDex listening on port: ${PORT}`);
 });
